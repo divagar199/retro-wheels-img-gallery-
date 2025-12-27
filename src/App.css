@@ -1,0 +1,379 @@
+/* --- GLOBAL & FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto+Mono:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --primary: #1a1a1a;
+  --accent: #c0392b;
+  --gold: #d4af37;
+  --paper: #f4f1ea;
+  --overlay-dark: rgba(0, 0, 0, 0.65);
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: #333;
+  font-family: 'Work Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION (VIDEO) --- */
+.hero-section {
+  position: relative;
+  height: 100vh; /* Desktop height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Mobile Full Screen Rule */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh; /* Full screen on mobile */
+  }
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.retro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* This creates the "Old Film" texture over the video */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-dark);
+  /* Dotted Pattern */
+  background-image: radial-gradient(rgba(0,0,0,0.3) 1px, transparent 1px);
+  background-size: 4px 4px;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+}
+
+/* --- HERO CONTENT --- */
+.hero-content {
+  z-index: 2;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-out;
+  width: 100%;
+  max-width: 800px;
+}
+
+.brand-logo-hero {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 5rem;
+  margin: 0;
+  letter-spacing: 5px;
+  text-shadow: 4px 4px 0px var(--accent);
+}
+
+.tagline-hero {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+/* Hero Search & Buttons */
+.hero-controls {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.retro-search-hero {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 15px 25px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 50px;
+  font-family: 'Roboto Mono';
+  font-size: 1rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.retro-search-hero:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-btn {
+  padding: 12px 30px;
+  font-family: 'Roboto Mono';
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--gold);
+  border: 2px solid var(--gold);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.hero-btn.outline {
+  background: transparent;
+  color: var(--gold);
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Hero Filters */
+.hero-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-badge {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #555;
+  color: #aaa;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Roboto Mono';
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.filter-badge:hover, .filter-badge.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* --- STICKY NAVBAR (Appears on Scroll) --- */
+.sticky-navbar {
+  position: fixed;
+  top: -80px; /* Hidden initially */
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(26, 26, 26, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: top 0.4s ease;
+  backdrop-filter: blur(10px);
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.sticky-navbar.visible {
+  top: 0; /* Slides down */
+}
+
+.nav-logo-small {
+  font-family: 'Abril Fatface';
+  color: var(--gold);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-search-small {
+  background: #333;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Roboto Mono';
+}
+
+.nav-actions-small button {
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 40px;
+  font-family: 'Roboto Mono';
+  font-size: 15px  ;
+  cursor: pointer;
+}
+
+.nav-actions-small button:hover {
+  color: var(--gold);
+}
+
+/* --- MAIN CONTENT & GRID --- */
+.content-wrapper {
+  margin-top: 4rem; /* Spacing after hero */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-header h2 {
+  font-family: 'Abril Fatface';
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 10px auto 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+/* --- CARD STYLING (Same as before) --- */
+.retro-card {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  padding: 15px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.retro-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 12px 12px 0px var(--accent);
+}
+
+.image-frame {
+  height: 200px;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  margin-bottom: 15px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(30%) contrast(1.1);
+  transition: 0.4s;
+}
+
+.retro-card:hover .card-img {
+  filter: none;
+  transform: scale(1.05);
+}
+
+.retro-title {
+  font-family: 'Abril Fatface';
+  font-size: 1.4rem;
+  margin: 0 0 5px 0;
+}
+
+.action-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 8px 0;
+  font-family: 'Roboto Mono';
+  font-weight: bold;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.like-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.like-btn:hover{
+  background: var(--accent);
+  color: white;
+}
+
+.wiki-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.retro-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px;
+  background: var(--primary);
+  color: #666;
+  font-family: 'Roboto Mono';
+  margin-top: 4rem;
+  background-image: radial-gradient(rgba(0,0,0,0.3) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+.retro-footer-div{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.retro-footer-div i{
+  cursor: pointer;
+}
+/* sticky-navbar-filter */
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Adjustments for Title */
+@media (max-width: 800px) {
+  #nav-hero-filters{display: none;}
+  .brand-logo-hero { font-size: 3rem; }
+  .sticky-navbar { padding: 0 10px; }
+  .nav-search-small { width: 200px; }
+  .nav-actions-small button { margin-left: 10px; font-size: 0.7rem; }
+  .retro-footer{ display: flex;justify-content: center; }
+
+}
