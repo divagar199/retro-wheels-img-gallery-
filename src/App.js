@@ -21,7 +21,6 @@ function App() {
   // Scroll Listener
   useEffect(() => {
     const handleScroll = () => {
-      // If user scrolls down more than 300px, activate sticky nav
       setScrolled(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +56,7 @@ function App() {
 
   return (
     <div className="vintage-bg">
-      {/* --- STICKY NAV (Hidden until scroll) --- */}
+      // Sticky Nav
       <nav className={`sticky-navbar ${scrolled ? "visible" : ""}`}>
         <div className="nav-logo-small" onClick={() => setView("home")}>
           RW
@@ -92,12 +91,11 @@ function App() {
         </div>
       </nav>
 
-      {/* --- HERO VIDEO HEADER (Full Screen) --- */}
+      // Hero video header
       <header className="hero-section">
-        {/* Video Background */}
+        // Video Background 
         <div className="video-container">
           <video autoPlay loop muted playsInline className="retro-video">
-            {/* Using a royalty-free Pexels video of a classic car */}
             <source
               src="https://www.pexels.com/download/video/10513744/"
               type="video/mp4"
@@ -132,7 +130,7 @@ function App() {
             </div>
           </div>
 
-          {/* Filters in Hero */}
+          // Hero Filters
           <div className="hero-filters">
             {categories.map((cat) => (
               <button
@@ -149,7 +147,7 @@ function App() {
         </div>
       </header>
 
-      {/* --- MAIN CONTENT --- */}
+     // main Content
       <main className="container content-wrapper">
         <div className="section-header">
           <h2>
