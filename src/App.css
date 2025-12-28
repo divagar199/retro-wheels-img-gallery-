@@ -372,7 +372,7 @@ body {
   #nav-hero-filters{display: none;}
   .brand-logo-hero { font-size: 3rem; }
   .sticky-navbar { padding: 0 10px; }
-  .nav-search-small { width: 200px; }
+  .nav-search-small { width: 150px; }
   .nav-actions-small button { margin-left: 10px; font-size: 0.7rem; }
   .retro-footer{ display: flex;justify-content: center; }
 
