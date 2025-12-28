@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Added wikiUrl to props
 const ImageCard = ({ id, title, imageUrl, description, category, wikiUrl, isCollected, onToggle }) => {
   return (
     <div className="retro-card">
@@ -18,7 +17,6 @@ const ImageCard = ({ id, title, imageUrl, description, category, wikiUrl, isColl
         <div className="separator"></div>
         <p className="retro-desc">{description}</p>
         
-        {/* New Action Row for two buttons */}
         <div className="action-row">
           <button 
             onClick={() => onToggle(id)} 
