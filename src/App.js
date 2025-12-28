@@ -7,7 +7,7 @@ function App() {
   const [view, setView] = useState("home");
   const [filterCategory, setFilterCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [scrolled, setScrolled] = useState(false); // Track scroll position
+  const [scrolled, setScrolled] = useState(false); 
 
   const [collection, setCollection] = useState(() => {
     const saved = localStorage.getItem("retroGarage");
@@ -18,7 +18,6 @@ function App() {
     localStorage.setItem("retroGarage", JSON.stringify(collection));
   }, [collection]);
 
-  // Scroll Listener
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 300);
@@ -56,7 +55,7 @@ function App() {
 
   return (
     <div className="vintage-bg">
-      // Sticky Nav
+    
       <nav className={`sticky-navbar ${scrolled ? "visible" : ""}`}>
         <div className="nav-logo-small" onClick={() => setView("home")}>
           RW
@@ -91,9 +90,9 @@ function App() {
         </div>
       </nav>
 
-      // Hero video header
+      
       <header className="hero-section">
-        // Video Background 
+      
         <div className="video-container">
           <video autoPlay loop muted playsInline className="retro-video">
             <source
@@ -130,7 +129,7 @@ function App() {
             </div>
           </div>
 
-          // Hero Filters
+        
           <div className="hero-filters">
             {categories.map((cat) => (
               <button
@@ -147,7 +146,6 @@ function App() {
         </div>
       </header>
 
-     // main Content
       <main className="container content-wrapper">
         <div className="section-header">
           <h2>
